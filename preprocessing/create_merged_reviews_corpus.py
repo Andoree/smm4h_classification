@@ -10,7 +10,7 @@ COLUMNS = ['sentences', 'EF', 'INF', 'ADR', 'DI', 'Finding']
 def main():
     parser = ArgumentParser()
     parser.add_argument('--psytar_dir', default=r"../../med_reviews_corpora/psytar_csvs/")
-    parser.add_argument('--otzovik_dir', default=r"../../med_reviews_corpora/")
+    parser.add_argument('--rudrec_dir', default=r"../../med_reviews_corpora/otzovik_csvs/fold_0")
     parser.add_argument('--output_dir', default=r"../../med_reviews_corpora/merged_reviews_kfolds")
     args = parser.parse_args()
 
