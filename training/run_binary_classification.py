@@ -974,6 +974,19 @@ def main(_):
 
         output_eval_file = os.path.join(FLAGS.output_dir, "eval_results.txt")
         with tf.gfile.GFile(output_eval_file, "w") as writer:
+            num_written_lines = 0
+            tf.logging.info("***** Predict results *****")
+            for (i, prediction) in enumerate(result):
+                probabilities = prediction["probabilities"]
+                if i >= len(result):
+                    break
+                output_line = "\t".join(
+                    str(class_probability)
+                    for class_probability in probabilities) + "\n"
+                writer.write(output_line)
+                num_written_lines += 1
+        output_eval_file = os.path.join(FLAGS.output_dir, "eval_statistics.txt")
+        with tf.gfile.GFile(output_eval_file, "w") as writer:
             tf.logging.info("***** Eval results *****")
             for key in sorted(result.keys()):
                 tf.logging.info("  %s = %s", key, str(result[key]))
