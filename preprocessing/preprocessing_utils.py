@@ -2,7 +2,7 @@ from typing import Dict
 
 import emoji
 
-from scripts.preprocessing.preprocessing_parameters import USERNAME_REGEX, URL_REGEX
+from preprocessing_parameters import USERNAME_REGEX, URL_REGEX
 
 
 def replace_emojis(tweet: str, mapping: Dict[str, str], ) -> str:

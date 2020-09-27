@@ -3,9 +3,9 @@ from argparse import ArgumentParser
 
 import pandas as pd
 
-from scripts.preprocessing.preprocessing_parameters import REPLACE_AMP_MAP, EMOJI_MAPS_MAP
+from preprocessing_parameters import REPLACE_AMP_MAP, EMOJI_MAPS_MAP
 
-from scripts.preprocessing.preprocessing_utils import preprocess_tweet_text
+from preprocessing_utils import preprocess_tweet_text
 
 
 def main():
