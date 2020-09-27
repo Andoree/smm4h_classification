@@ -971,11 +971,18 @@ def main(_):
             drop_remainder=eval_drop_remainder)
 
         result = estimator.evaluate(input_fn=eval_input_fn, steps=eval_steps)
+        output_eval_file = os.path.join(FLAGS.output_dir, "eval_statistics.txt")
+        with tf.gfile.GFile(output_eval_file, "w") as writer:
+            tf.logging.info("***** Eval results *****")
+            for key in sorted(result.keys()):
+                tf.logging.info("  %s = %s", key, str(result[key]))
+                writer.write("%s = %s\n" % (key, str(result[key])))
 
+        result = estimator.predict(input_fn=eval_input_fn,)
         output_eval_file = os.path.join(FLAGS.output_dir, "eval_results.txt")
         with tf.gfile.GFile(output_eval_file, "w") as writer:
             num_written_lines = 0
-            tf.logging.info("***** Predict results *****")
+            tf.logging.info("***** Eval results *****")
             for (i, prediction) in enumerate(result):
                 probabilities = prediction["probabilities"]
                 if i >= len(result):
@@ -985,12 +992,7 @@ def main(_):
                     for class_probability in probabilities) + "\n"
                 writer.write(output_line)
                 num_written_lines += 1
-        output_eval_file = os.path.join(FLAGS.output_dir, "eval_statistics.txt")
-        with tf.gfile.GFile(output_eval_file, "w") as writer:
-            tf.logging.info("***** Eval results *****")
-            for key in sorted(result.keys()):
-                tf.logging.info("  %s = %s", key, str(result[key]))
-                writer.write("%s = %s\n" % (key, str(result[key])))
+
 
     if FLAGS.do_predict:
         predict_examples = processor.get_test_examples(FLAGS.data_dir)
