@@ -985,7 +985,7 @@ def main(_):
             tf.logging.info("***** Eval results *****")
             for (i, prediction) in enumerate(result):
                 probabilities = prediction["probabilities"]
-                if i >= len(result):
+                if i >= len(eval_examples):
                     break
                 output_line = "\t".join(
                     str(class_probability)
