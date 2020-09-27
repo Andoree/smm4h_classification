@@ -15,15 +15,15 @@ def main():
     args = parser.parse_args()
 
     psytar_dir = args.psytar_dir
-    otzovik_dir = args.otzovik_dir
+    rudrec_dir = args.rudrec_dir
     output_dir = args.output_dir
     if not os.path.exists(output_dir) and not output_dir == '':
         os.makedirs(output_dir)
     random_state = 42
 
-    otzovik_train_df = pd.read_csv(os.path.join(otzovik_dir, "train.csv"), encoding="utf-8")[COLUMNS]
-    otzovik_test_df = pd.read_csv(os.path.join(otzovik_dir, "test.csv"), encoding="utf-8")[COLUMNS]
-    otzovik_dev_df = pd.read_csv(os.path.join(otzovik_dir, "dev.csv"), encoding="utf-8")[COLUMNS]
+    otzovik_train_df = pd.read_csv(os.path.join(rudrec_dir, "train.csv"), encoding="utf-8")[COLUMNS]
+    otzovik_test_df = pd.read_csv(os.path.join(rudrec_dir, "test.csv"), encoding="utf-8")[COLUMNS]
+    otzovik_dev_df = pd.read_csv(os.path.join(rudrec_dir, "dev.csv"), encoding="utf-8")[COLUMNS]
 
     psytar_train_df = pd.read_csv(os.path.join(psytar_dir, "train.csv"), encoding="utf-8")[COLUMNS]
     psytar_test_df = pd.read_csv(os.path.join(psytar_dir, "test.csv"), encoding="utf-8")[COLUMNS]
