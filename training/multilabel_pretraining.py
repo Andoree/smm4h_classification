@@ -8,7 +8,7 @@ import tokenization
 from bert_preprocessing import create_examples
 from multilabel_bert import file_based_input_fn_builder, create_model, model_fn_builder, \
 input_fn_builder, create_output, predict, get_estimator, train_and_evaluate
-from sklearn.metrics import precision_score, recall_score, f1_score,
+from sklearn.metrics import precision_score, recall_score, f1_score
 
 def main():
     parser = ArgumentParser()
