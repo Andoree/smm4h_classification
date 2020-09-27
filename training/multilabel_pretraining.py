@@ -6,9 +6,10 @@ import pandas as pd
 import tensorflow as tf
 import tokenization
 from bert_preprocessing import create_examples
-from multilabel_bert import file_based_input_fn_builder, create_model, model_fn_builder, \
-input_fn_builder, create_output, predict, get_estimator, train_and_evaluate
+from multilabel_bert import model_fn_builder, \
+    predict, get_estimator, train_and_evaluate
 from sklearn.metrics import precision_score, recall_score, f1_score
+
 
 def main():
     parser = ArgumentParser()
@@ -25,7 +26,7 @@ def main():
     parser.add_argument('--text_column', )
     parser.add_argument('--num_labels', type=int)
     parser.add_argument('--threshold', type=float, default=0.5)
-    parser.add_argument('--output_dir',)
+    parser.add_argument('--output_dir', )
     parser.add_argument('--prediction_filename', )
     args = parser.parse_args()
 
@@ -45,6 +46,7 @@ def main():
     predicted_proba_filename = args.prediction_filename
     # Number of classes
     num_labels = args.num_labels
+    threshold = args.threshold
     # The column with this name must exist in test data.
     text_column_name = args.text_column
 
@@ -122,7 +124,6 @@ def main():
     label_names = {"p_label_1": "EF", "p_label_2": "INF", "p_label_3": "ADR", "p_label_4": "DI", "p_label_5": "Finding"}
     output_df = predict(test_df, estimator, tokenizer, max_seq_length, num_labels=num_labels)
 
-
     resulting_df = pd.concat([test_df, output_df], axis=1)
     resulting_df.to_csv(os.path.join(output_dir, predicted_proba_filename), index=False)
     resulting_df.rename(columns=label_names, inplace=True)
@@ -146,6 +147,7 @@ def main():
         for metric_name, metric in METRICS.items():
             score = metric(y_true=class_true_labels, y_pred=class_pred_labels, labels=labels, )
             print(f"\t{metric_name} : {score}")
+
 
 if __name__ == '__main__':
     main()
