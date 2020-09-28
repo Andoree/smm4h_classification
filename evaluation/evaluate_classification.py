@@ -30,7 +30,8 @@ def main():
     if not os.path.exists(output_dir) and not output_dir == '':
         os.makedirs(output_dir)
 
-    true_labels_and_tweets_df = pd.read_csv(true_labels_path, sep="\t", quoting=3, quotechar=None, encoding="utf-8")
+    true_labels_and_tweets_df = pd.read_csv(true_labels_path, sep="\t", quoting=3, quotechar=None, encoding="utf-8",
+                                            header=None, names=["class", "tweet"])
     true_labels_df = true_labels_and_tweets_df["class"]
 
     predicted_labels_df = pd.read_csv(predicted_labels_path, sep="\t", encoding="utf-8", header=None)
