@@ -4,7 +4,7 @@ from argparse import ArgumentParser
 import pandas as pd
 from sklearn.metrics import classification_report
 
-from scripts.calculate_results import METRICS
+from evaluate_classification import METRICS
 
 
 def main():
