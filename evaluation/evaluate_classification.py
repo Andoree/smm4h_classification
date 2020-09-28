@@ -15,6 +15,7 @@ def main():
     parser.add_argument('--predicted_labels_path', )
     parser.add_argument('--threshold', type=float, default=0.5)
     parser.add_argument('--output_path', )
+    parser.add_argument('--labels_path')
     args = parser.parse_args()
 
     true_labels_path = args.true_labels_path
@@ -22,6 +23,10 @@ def main():
     output_path = args.output_path
     threshold = args.threshold
     output_dir = os.path.dirname(output_path)
+    if not os.path.exists(output_dir) and not output_dir == '':
+        os.makedirs(output_dir)
+    labels_path = args.labels_path
+    output_dir = os.path.dirname(labels_path)
     if not os.path.exists(output_dir) and not output_dir == '':
         os.makedirs(output_dir)
 
@@ -40,6 +45,7 @@ def main():
             print(f"{metric_name}", metric(true_labels_df, predicted_labels_df))
         output_file.write(",".join([str(x) for x in results.values()]))
         output_file.write('\n')
+    predicted_labels_df.to_csv(labels_path, sep='\t', index=None)
 
 
 if __name__ == '__main__':
