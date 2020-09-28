@@ -39,14 +39,14 @@ def main():
     all_predictions['sum'] = (all_predictions >= 0.5).sum(axis=1)
     all_predictions['final_label'] = all_predictions['sum'].apply(lambda x: 1 if x >= len(columns) / 2 else 0)
 
-    data_df = pd.read_csv(data_tsv_path, sep="\t", encoding="utf-8")
-    data_df['Class'] = all_predictions['final_label']
+    data_df = pd.read_csv(data_tsv_path, sep="\t", encoding="utf-8", 
+                header=None, names=["Class", "Tweet"])
     if calculate_metrics:
-        true_labels_df = data_df["class"]
+        true_labels_df = data_df["Class"]
         print(classification_report(true_labels_df, all_predictions['final_label']))
         for metric_name, metric in METRICS.items():
             print(f"{metric_name}", metric(true_labels_df, all_predictions['final_label']))
-
+    data_df['Class'] = all_predictions['final_label']
     data_df.to_csv(output_path, sep="\t", index=False, encoding="utf-8")
 
 
