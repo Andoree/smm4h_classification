@@ -1,6 +1,6 @@
 ## Overview
 
-This repository contains the code for the paper "HiddenName Team at SMM4H 2020 Tasks: Cross-lingual TransferLearning with Pretrained Language Models for Drug Reactions" [1].
+This repository contains the code for the paper "KFU NLP Team at SMM4H 2020 Tasks: Cross-lingual TransferLearning with Pretrained Language Models for Drug Reactions" [1].
 
 
 ## Data
