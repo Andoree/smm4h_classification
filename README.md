@@ -1,6 +1,6 @@
-# ssm4h_classification
+## Overview
 
-Overview: This repository contains the code for the paper "HiddenName Team at SMM4H 2020 Tasks: Cross-lingual TransferLearning with Pretrained Language Models for Drug Reactions" [1].
+This repository contains the code for the paper "HiddenName Team at SMM4H 2020 Tasks: Cross-lingual TransferLearning with Pretrained Language Models for Drug Reactions" [1].
 
 
 ## Data
@@ -18,7 +18,8 @@ https://github.com/cimm-kzn/RuDReC
 
 For the example of ADR sentences classification, see the ["SMM4H_2020_ADR_classification.ipynb"]( https://github.com/Andoree/smm4h_classification/blob/master/SMM4H_2020_ADR_classification.ipynb) notebook (also available via [Colab](https://colab.research.google.com/drive/14rofSuaQAVBPiNuXz-MYdhTtEPNQnHUd?usp=sharing)).
 
-This example contains both the pretraining and the fine-tuning steps.
+This example contains both the pretraining and the fine-tuning steps. The example utilizes the EnRuDR-BERT model that is available at:
+https://github.com/cimm-kzn/RuDReC
 
 ## Repository structure
 
