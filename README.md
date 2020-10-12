@@ -32,13 +32,14 @@ Both scripts rely on the [Google's BERT implementation](https://github.com/googl
 The "preprocessing" directory contains scripts for:
   - The merging of RuDReC and PsyTAR sentences into the combined training and validation sets.
   - The preprocessing of the tweets of the SMM4H binary classification task.
+  - The merging of the Russian and English datasets of tweets.
 
 The "evaluation" directory contains scripts for the evaluation of binary classification results and for the ensembling of multiple predictions.
 
 
 ## References
 
-1. #TODO 
+1. TBP
 
 2. https://doi.org/10.1093/bioinformatics/btaa675
 ```
