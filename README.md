@@ -16,7 +16,7 @@ https://github.com/cimm-kzn/RuDReC
 
 ## Example
 
-For the example of ADR sentences classification, see the ["SMM4H_2020_ADR_classification.ipynb"]( https://github.com/Andoree/smm4h_classification/blob/master/SMM4H_2020_ADR_classification.ipynb) notebook (also available via [Colab](https://colab.research.google.com/drive/14rofSuaQAVBPiNuXz-MYdhTtEPNQnHUd?usp=sharing)).
+For the example of ADR sentences classification, see the ["SMM4H_2020_ADR_classification.ipynb"]( https://github.com/Andoree/smm4h_classification/blob/master/SMM4H_2020_ADR_classification.ipynb) notebook (also available via [Colab](https://colab.research.google.com/drive/1Q5w0GxYjSIMLOooHT7n3Hb7QVoPia9wT?usp=sharing)).
 
 This example contains both the pretraining and the fine-tuning steps. The example utilizes the EnRuDR-BERT model that is available at:
 https://github.com/cimm-kzn/RuDReC
@@ -39,7 +39,7 @@ The "evaluation" directory contains scripts for the evaluation of binary classif
 
 ## References
 
-1. TBP
+1. Miftahutdinov Z., Sakhovskiy A., Tutubalina E. KFU NLP Team at SMM4H 2020 Tasks: Cross-lingual Transfer Learning with Pretrained Language Models for Drug Reactions //Proceedings of the Fifth Social Media Mining for Health Applications (#SMM4H) Workshop & Shared Task. – 2020
 
 2. https://doi.org/10.1093/bioinformatics/btaa675
 ```
